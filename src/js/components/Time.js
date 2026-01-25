@@ -23,17 +23,21 @@ export default class Time extends Component {
     const options = {
       hour: "numeric",
       minute: "numeric",
-      // second: "numeric",
-      timeZone: "Europe/London",
+      hour12: false, // Ensures 24-hour format if preferred, or remove for 12-hour
+      timeZone: "Asia/Kolkata", // CHANGED FROM Europe/London to Asia/Kolkata
     };
 
-    const time = new Intl.DateTimeFormat([], options).format(new Date());
+    const time = new Intl.DateTimeFormat("en-US", {
+      ...options,
+      hour12: false // Force 24-hour format so the split(':') works reliably without AM/PM
+    }).format(new Date());
 
     return time;
   }
 
   get formattedTime() {
     const time = this.currentTime;
+    // This logic expects a format like "14:30" to split correctly
     const timeArray = time.split(":");
     const hourValue = timeArray[0];
     const minuteValue = timeArray[1];
