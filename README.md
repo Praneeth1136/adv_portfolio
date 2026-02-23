@@ -4,7 +4,7 @@
 yarn
 
 yarn dev
-``` 
+```  
 
 ### If you do not have yarn installed, delete the `yarn.lock` file and install via npm,
 
