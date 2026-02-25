@@ -1,14 +1,15 @@
+
 {
   "redirects": [
     {
-      "source": "/netflixgpt",
-      "destination": "https://netflix-gpt-xi-virid.vercel.app/",
+      "source": "/netflixgpt/:path*",
+      "destination": "https://netflix-gpt-xi-virid.vercel.app/:path*",
       "permanent": true
     },
     {
-        "source" : "/swiggy",
-        "destination" : "https://swigggy.vercel.app/",
-        "permanent":true
+      "source": "/swiggy/:path*",
+      "destination": "https://swigggy.vercel.app/:path*",
+      "permanent": true
     }
   ]
 }
