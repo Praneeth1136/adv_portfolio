@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/netflixgpt",
+      "destination": "https://netflix-gpt-xi-virid.vercel.app/",
+      "permanent": true
+    }
+  ]
+}
