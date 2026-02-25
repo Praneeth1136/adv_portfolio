@@ -4,6 +4,11 @@
       "source": "/netflixgpt",
       "destination": "https://netflix-gpt-xi-virid.vercel.app/",
       "permanent": true
+    },
+    {
+        "source" : "/swiggy",
+        "destination" : "https://swigggy.vercel.app/",
+        "permanent":true
     }
   ]
 }
