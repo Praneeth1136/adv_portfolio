@@ -9,8 +9,8 @@
       "destination": "https://swigggy.vercel.app/:path*"
     },
     {
-      "source":"/inquiro/:path",
-      "destination":"https://inquiro-ten-roan.vercel.app/"
+      "source": "/inquiro/:path*",
+      "destination": "https://inquiro-ten-roan.vercel.app/:path*"
     }
   ]
 }
