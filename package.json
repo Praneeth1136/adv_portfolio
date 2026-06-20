@@ -18,11 +18,10 @@
     "vite": "^5.2.9"
   },
   "dependencies": {
-    "gsap": "^3.7.0",
-    "loconative-scroll": "git+https://github.com/quentinhocde/loconative-scroll.git"
+    "gsap": "^3.7.0"
   },
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   }
 
 }

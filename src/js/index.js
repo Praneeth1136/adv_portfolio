@@ -1,4 +1,4 @@
-import LoconativeScroll from "loconative-scroll";
+import LoconativeScroll from "./loconative-scroll.js";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { copyText } from "./utils/index";
