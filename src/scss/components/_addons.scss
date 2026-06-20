@@ -1,0 +1,137 @@
+/* ============================================================
+   PREMIUM ADD-ONS — preloader, scroll progress, film grain
+   ============================================================ */
+
+/* ---------- Page-load preloader ---------- */
+.c-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: $col-black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+
+  &__inner {
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &__name {
+    display: block;
+    font-family: $font-bebas;
+    font-size: 7rem;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: $col-white;
+
+    @include media("<=phone") {
+      font-size: 4rem;
+    }
+  }
+
+  &__role {
+    display: block;
+    margin-top: 1.2rem;
+    font-family: $font-sauce;
+    font-size: 1.4rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: $col-orange;
+
+    @include media("<=phone") {
+      font-size: 1.1rem;
+      letter-spacing: 0.25em;
+    }
+  }
+
+  &__count {
+    position: absolute;
+    bottom: 4rem;
+    right: 4.5rem;
+    font-family: $font-bebas;
+    font-size: 9rem;
+    line-height: 1;
+    color: $col-boulder;
+
+    @include media("<=phone") {
+      font-size: 5rem;
+      bottom: 2.4rem;
+      right: 2rem;
+    }
+  }
+
+  &.is-hidden {
+    pointer-events: none;
+  }
+}
+
+/* ---------- Scroll progress bar ---------- */
+.c-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 9998;
+  background: transparent;
+  pointer-events: none;
+
+  &__bar {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: $col-orange;
+    will-change: width;
+  }
+}
+
+/* ---------- Film grain overlay ---------- */
+.c-grain {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.6s steps(2) infinite;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-5%, 5%);
+  }
+  40% {
+    transform: translate(5%, -5%);
+  }
+  60% {
+    transform: translate(-3%, -3%);
+  }
+  80% {
+    transform: translate(3%, 3%);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .c-grain {
+    animation: none;
+  }
+}
+
+/* ---------- Preloader visibility override ----------
+   The base stylesheet sets `body { opacity: 0 }` until Loconative inits.
+   Force the body visible so the preloader shows instantly; the actual
+   site content stays hidden via `.home { visibility: hidden }` until the
+   intro animation runs autoAlpha on the scroll container. */
+body {
+  opacity: 1 !important;
+}

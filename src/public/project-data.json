@@ -1,25 +1,44 @@
 [
-  
   {
     "id": 1,
-    "title": "Netflix GPT — AI-POWERED STREAMING",
+    "title": "CAPSTONE: MULTI-AGENT AI SANDBOX",
+    "role": "Node.js / <br /> Docker & Kubernetes",
+    "description": "A distributed microservice engine orchestrating specialized AI programming agents, provisioning isolated execution spaces at runtime via the Kubernetes API with Docker, Ingress, and RBAC.",
+    "link": "https://github.com/Praneeth1136"
+  },
+  {
+    "id": 2,
+    "title": "INQUIRO: REAL-TIME SEARCH AGENT",
+    "role": "LangChain / <br /> Groq & Socket.io",
+    "description": "A multimodal AI search interface using LangChain with dynamic fallback routing across LLaMA 3.3 and 3.2 Vision on the Groq LPU, streaming token-by-token responses with source-cited results.",
+    "link": "https://inquiro-ten-roan.vercel.app/"
+  },
+  {
+    "id": 3,
+    "title": "DEVTINDER: DEVELOPER NETWORKING",
+    "role": "Node.js / <br /> React & Socket.io",
+    "description": "A full-stack networking platform with real-time chat over Socket.io and 12+ secure REST APIs in Node.js, deployed on AWS EC2 with Nginx at 99% uptime.",
+    "link": "https://github.com/Praneeth1136/DevTinder_Main"
+  },
+  {
+    "id": 4,
+    "title": "NETFLIX GPT — AI STREAMING",
     "role": "React / <br /> OpenAI & Firebase",
     "description": "A serverless streaming app integrating Gemini 2.5 Flash for natural language content recommendations, increasing search accuracy by 40%.",
     "link": "https://netflix-gpt-xi-virid.vercel.app/"
   },
   {
-    "id": 2,
-    "title": "Swigggy — FOOD DELIVERY APP",
+    "id": 5,
+    "title": "SWIGGY — FOOD DELIVERY APP",
     "role": "React / <br /> Redux Toolkit",
     "description": "A scalable frontend with Redux Toolkit for cart management, featuring Lazy Loading and Shimmer UI to reduce load times by 35%.",
     "link": "https://swigggy.vercel.app/"
   },
   {
-    "id": 3,
-    "title": "Smart Code Base — AI SEARCH ENGINE",
+    "id": 6,
+    "title": "SMART CODE BASE — AI SEARCH ENGINE",
     "role": "Node.js / <br /> Gemini API",
     "description": "An AI-powered search engine interpreting natural language queries to reduce repository retrieval time by 40%.",
-    "link": "https://github.com/"
+    "link": "https://github.com/Praneeth1136"
   }
-
 ]

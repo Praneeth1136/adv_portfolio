@@ -1,0 +1,47 @@
+/* ============================================================
+   LAYOUT FIXES — kill horizontal scroll, make the page rigid
+   ============================================================ */
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* The Loconative smooth-scroll container can render slightly wider than
+   the viewport because of horizontal-parallax letters + the marquee.
+   Clamp every top-level wrapper so nothing leaks past 100vw. */
+[data-scroll-container] {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.home {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Sections that contain oversized / animated text must clip horizontally
+   but NOT vertically (vertical clip would cut the slide-up hover effect). */
+.home__hero,
+.home__projects,
+.home__contact,
+.home__awards,
+.home__content {
+  max-width: 100vw;
+  overflow-x: clip; /* clip keeps sticky/overflow-y behaviour intact */
+}
+
+/* Belt-and-suspenders: the marquee row should never create page width */
+.home__contact .marquee,
+.home__contact .marquee__wrap {
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+/* Project titles use white-space: nowrap + horizontal parallax; make sure
+   their overflow is contained by the section, not the page. */
+.home__projects__project {
+  max-width: 100vw;
+  overflow-x: clip;
+}

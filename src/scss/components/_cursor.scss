@@ -1,0 +1,86 @@
+/* ============================================================
+   CUSTOM CURSOR — ring + dot (desktop only)
+   ============================================================ */
+.c-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  display: none;
+
+  @media (any-pointer: fine) {
+    display: block;
+  }
+
+  /* the outer ring */
+  &__ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px; /* centre the 40px ring on its transform origin */
+    border: 1.5px solid $col-boulder;
+    border-radius: 50%;
+    /* NOTE: position is driven by JS transform; only size/colour transition */
+    transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      margin 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.35s ease, background 0.35s ease;
+  }
+
+  /* the inner dot */
+  &__dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px; /* centre the 6px dot */
+    background: $col-orange;
+    border-radius: 50%;
+    /* position driven by JS transform */
+    transition: opacity 0.3s ease;
+  }
+
+  /* hover state over links/buttons: ring grows + tints, dot hides */
+  &.is-active {
+    .c-cursor__ring {
+      width: 64px;
+      height: 64px;
+      margin: -32px 0 0 -32px;
+      border-color: $col-orange;
+      background: rgba(203, 69, 12, 0.12);
+    }
+    .c-cursor__dot {
+      opacity: 0;
+    }
+  }
+}
+
+/* Hide native cursor on desktop so only the custom one shows */
+@media (any-pointer: fine) {
+  body,
+  a,
+  button,
+  .home__projects__project__link,
+  .c-button,
+  .email {
+    cursor: none;
+  }
+}
+
+/* Per-letter hero hover lift */
+.hero__hover {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s ease;
+  will-change: transform;
+
+  @media (any-pointer: fine) {
+    &:hover {
+      transform: translateY(-0.08em);
+      color: $col-orange;
+    }
+  }
+}

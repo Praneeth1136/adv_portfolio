@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { copyText } from "./utils/index";
 import { mapEach } from "./utils/dom";
-// import Home from "./pages/home";
 import Time from "./components/Time";
 
 const toContactButtons = document.querySelectorAll(".contact-scroll");
@@ -11,7 +10,6 @@ const footer = document.getElementById("js-footer");
 const scrollEl = document.querySelector("[data-scroll-container]");
 const emailButton = document.querySelector("button.email");
 const toCopyText = document.querySelector(".to-copy span");
-// const body = document.body;
 const time = new Time();
 
 gsap.registerPlugin(ScrollTrigger);
@@ -31,6 +29,16 @@ setTimeout(() => {
 
 scroll.on("scroll", ScrollTrigger.update);
 
+// Scroll progress bar
+const progressBar = document.getElementById("js-progress");
+scroll.on("scroll", (args) => {
+  if (!progressBar) return;
+  const y = args && args.scroll ? args.scroll.y : 0;
+  const limit = args && args.limit ? args.limit.y : 1;
+  const pct = limit > 0 ? Math.min((y / limit) * 100, 100) : 0;
+  progressBar.style.width = pct + "%";
+});
+
 ScrollTrigger.scrollerProxy(scroll.el, {
   scrollTop(value) {
     return arguments.length
@@ -48,6 +56,96 @@ ScrollTrigger.scrollerProxy(scroll.el, {
   },
 });
 
+/* ----------------------------------------------------------------
+   CUSTOM CURSOR — follows pointer with smooth lerp, grows on hover
+----------------------------------------------------------------- */
+class Cursor {
+  constructor() {
+    this.el = document.querySelector(".c-cursor");
+    this.ring = document.querySelector(".c-cursor__ring");
+    this.dot = document.querySelector(".c-cursor__dot");
+    if (!this.el || !window.matchMedia("(any-pointer: fine)").matches) return;
+
+    this.mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    // dot follows fast, ring trails for an elastic feel
+    this.dotPos = { ...this.mouse };
+    this.ringPos = { ...this.mouse };
+    this.dotSpeed = 0.35;
+    this.ringSpeed = 0.15;
+
+    window.addEventListener("mousemove", (e) => {
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
+    });
+
+    // grow cursor over interactive elements
+    const hoverTargets = document.querySelectorAll(
+      "a, button, .home__projects__project__link, .c-button, .email"
+    );
+    hoverTargets.forEach((t) => {
+      t.addEventListener("mouseenter", () => this.el.classList.add("is-active"));
+      t.addEventListener("mouseleave", () =>
+        this.el.classList.remove("is-active")
+      );
+    });
+
+    // hide when pointer leaves the window
+    document.addEventListener("mouseleave", () => (this.el.style.opacity = 0));
+    document.addEventListener("mouseenter", () => (this.el.style.opacity = 1));
+
+    this.render();
+  }
+
+  render() {
+    this.dotPos.x += (this.mouse.x - this.dotPos.x) * this.dotSpeed;
+    this.dotPos.y += (this.mouse.y - this.dotPos.y) * this.dotSpeed;
+    this.ringPos.x += (this.mouse.x - this.ringPos.x) * this.ringSpeed;
+    this.ringPos.y += (this.mouse.y - this.ringPos.y) * this.ringSpeed;
+
+    if (this.dot) {
+      this.dot.style.transform = `translate3d(${this.dotPos.x}px, ${this.dotPos.y}px, 0)`;
+    }
+    if (this.ring) {
+      this.ring.style.transform = `translate3d(${this.ringPos.x}px, ${this.ringPos.y}px, 0)`;
+    }
+    requestAnimationFrame(() => this.render());
+  }
+}
+
+/* ----------------------------------------------------------------
+   MAGNETIC BUTTONS — pull toward the cursor when hovered
+----------------------------------------------------------------- */
+class Magnetic {
+  constructor(el) {
+    this.el = el;
+    this.strength = 0.35;
+    this.bind();
+  }
+
+  bind() {
+    this.el.addEventListener("mousemove", (e) => {
+      const rect = this.el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(this.el, {
+        x: x * this.strength,
+        y: y * this.strength,
+        duration: 0.6,
+        ease: "power3.out",
+      });
+    });
+
+    this.el.addEventListener("mouseleave", () => {
+      gsap.to(this.el, {
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: "elastic.out(1, 0.3)",
+      });
+    });
+  }
+}
+
 export default class Home {
   constructor(scroll) {
     this.locomotive = scroll;
@@ -55,6 +153,16 @@ export default class Home {
     this.homeIntro();
     this.homeAnimations();
     this.homeActions();
+    this.initInteractions();
+  }
+
+  initInteractions() {
+    if (window.matchMedia("(any-pointer: fine)").matches) {
+      new Cursor();
+      document
+        .querySelectorAll(".nav__button, .footer__links .c-button, .email")
+        .forEach((el) => new Magnetic(el));
+    }
   }
 
   homeActions() {
@@ -88,23 +196,30 @@ export default class Home {
       yPercent: -100,
       ease: "power4.out",
     })
-      .from(".hero__title [title-overflow]", {
-        duration: 0.7,
-        yPercent: 100,
-        stagger: {
-          amount: 0.2,
+      // per-letter staggered reveal of the hero headline
+      .from(
+        ".hero__hover",
+        {
+          duration: 0.9,
+          yPercent: 120,
+          opacity: 0,
+          stagger: {
+            amount: 0.5,
+            from: "start",
+          },
+          ease: "power4.out",
         },
-        ease: "power4.out",
-      })
+        "-=0.1"
+      )
       .from(
         ".hero__title .bottom__right",
         {
           duration: 1,
-          yPercent: 100,
+          yPercent: 60,
           opacity: 0,
           ease: "power4.out",
         },
-        "<20%"
+        "<30%"
       )
       .set(".hero__title .overflow", { overflow: "unset" })
       .from(
@@ -147,6 +262,24 @@ export default class Home {
         ease: "power4.out",
       });
     });
+
+    // project titles clip-reveal on scroll (desktop)
+    if (window.innerWidth > 768) {
+      gsap.utils.toArray(".home__projects__project__title").forEach((el) => {
+        const inner = el.querySelector(".title__main");
+        if (!inner) return;
+        gsap.from(inner, {
+          scrollTrigger: {
+            trigger: el,
+            scroller: "[data-scroll-container]",
+            start: "top 95%",
+          },
+          duration: 1.2,
+          yPercent: 100,
+          ease: "power4.out",
+        });
+      });
+    }
 
     if (window.innerWidth <= 768) {
       gsap.utils.toArray(".home__projects__project").forEach((el) => {
@@ -201,4 +334,69 @@ export default class Home {
   }
 }
 
-new Home(scroll);
+/* ----------------------------------------------------------------
+   PRELOADER — counts 0 -> 100, then wipes up to reveal the site
+----------------------------------------------------------------- */
+class Preloader {
+  constructor(onComplete) {
+    this.el = document.getElementById("js-preloader");
+    this.counter = document.getElementById("js-counter");
+    this.onComplete = onComplete;
+
+    if (!this.el) {
+      this.onComplete();
+      return;
+    }
+    this.run();
+  }
+
+  run() {
+    const obj = { val: 0 };
+    gsap.to(obj, {
+      val: 100,
+      duration: 2,
+      ease: "power2.inOut",
+      onUpdate: () => {
+        if (this.counter) this.counter.textContent = Math.round(obj.val);
+      },
+      onComplete: () => this.reveal(),
+    });
+  }
+
+  reveal() {
+    // Reveal the site content underneath FIRST, while the preloader still
+    // covers the screen — then wipe the preloader away over the live site.
+    this.onComplete();
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        this.el.classList.add("is-hidden");
+        this.el.style.display = "none";
+      },
+    });
+
+    tl.to(".c-preloader__inner, .c-preloader__count", {
+      duration: 0.6,
+      yPercent: -120,
+      opacity: 0,
+      stagger: 0.08,
+      ease: "power3.inOut",
+    }).to(
+      this.el,
+      {
+        duration: 0.9,
+        yPercent: -100,
+        ease: "power4.inOut",
+      },
+      "-=0.2"
+    );
+  }
+}
+
+// Gate the site intro behind the preloader.
+// Home initialises the moment the counter finishes (content revealed underneath),
+// then the preloader wipes away to show it — no flash of hidden content.
+new Preloader(() => {
+  new Home(scroll);
+  setTimeout(() => scroll.update(), 100);
+});
