@@ -422,3 +422,74 @@ new Preloader(() => {
   new Home(scroll);
   setTimeout(() => scroll.update(), 100);
 });
+// --- EXTRA ADDONS ---
+document.addEventListener("DOMContentLoaded", () => {
+
+  // 2. Interactive Terminal
+  const termInput = document.getElementById("terminal-input");
+  const termOutput = document.getElementById("terminal-output");
+  const termBody = document.getElementById("terminal-body");
+
+  if (termInput && termOutput) {
+    termBody.addEventListener("click", () => termInput.focus());
+
+    termInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const cmd = termInput.value.trim().toLowerCase();
+        let response = "";
+        
+        termOutput.innerHTML += `<div style="display: flex; gap: 10px; margin-top: 10px;">
+          <span style="color: #27c93f;">➜</span>
+          <span style="color: #58a6ff;">~</span>
+          <span>${termInput.value}</span>
+        </div>`;
+
+        switch(cmd) {
+          case "help":
+            response = "Available commands: <br> - <span style='color: #ffbd2e;'>whoami</span>: Learn about me <br> - <span style='color: #ffbd2e;'>skills</span>: View my tech stack <br> - <span style='color: #ffbd2e;'>clear</span>: Clear terminal";
+            break;
+          case "whoami":
+            response = "Praneeth Kilaparthi. Full-Stack Engineer specializing in React, Node.js, and Agentic AI. Currently seeking SWE roles.";
+            break;
+          case "skills":
+            response = "Python, Java, React, Node.js, Kubernetes, Docker, AWS, LangChain.";
+            break;
+          case "clear":
+            termOutput.innerHTML = "";
+            break;
+          case "":
+            break;
+          default:
+            response = `Command not found: ${cmd}. Type 'help' for available commands.`;
+        }
+
+        if (response) {
+          termOutput.innerHTML += `<div style="margin-top: 5px; color: #ddd; line-height: 1.5;">${response}</div>`;
+        }
+
+        termInput.value = "";
+        setTimeout(() => {
+          termBody.scrollTop = termBody.scrollHeight;
+        }, 10);
+      }
+    });
+  }
+
+  // 4. Back to Top Button
+  const backToTop = document.getElementById("back-to-top");
+  if (backToTop) {
+    // Show/hide based on scroll
+    scroll.on("scroll", (args) => {
+      if (args.scroll.y > 500) {
+        backToTop.style.bottom = "20px";
+      } else {
+        backToTop.style.bottom = "-60px";
+      }
+    });
+
+    // Click to scroll to top
+    backToTop.addEventListener("click", () => {
+      scroll.scrollTo(0, { duration: 1000, easing: [0.25, 0.0, 0.35, 1.0] });
+    });
+  }
+});

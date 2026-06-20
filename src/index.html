@@ -59,6 +59,16 @@
     <!-- Film grain overlay -->
     <div class="c-grain" aria-hidden="true"></div>
     <main class="home" data-scroll-container="">
+    <!-- AMBIENT GRADIENT GLOW -->
+    <div style="position: absolute; top: -20%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(120,0,255,0.15) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: -1; animation: pulseGlow 10s infinite alternate;"></div>
+    <div style="position: absolute; top: 10%; right: -10%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(255,100,0,0.1) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: -1; animation: pulseGlow 8s infinite alternate-reverse;"></div>
+    <style>
+      @keyframes pulseGlow {
+        0% { transform: scale(1) translate(0, 0); opacity: 0.8; }
+        100% { transform: scale(1.2) translate(50px, 50px); opacity: 1; }
+      }
+    </style>
+
       <nav class="home__nav">
         <div class="home__nav__left">
           <div class="nav__name" nav-anim="">
@@ -194,7 +204,35 @@
         </div>
       </section>
 
-      <section class="home__projects" data-projects-section-1=""><span class="home__projects__line left"><span></span></span><div class="home__projects__project right">
+      
+      <!-- SKILLS MARQUEE ADDON -->
+      <section class="home__contact" style="padding-top: 0; padding-bottom: 6rem; margin-top: -4rem;">
+        <div class="line-wrapper">
+          <span class="home__projects__line left" style="visibility: visible;">
+            <span style="transform: scaleX(1);"></span>
+          </span>
+        </div>
+
+        <div class="marquee" style="background: rgba(255,255,255,0.02);">
+          <div class="marquee__wrap">
+            <div class="marquee__inner" style="animation: marquee 35s linear infinite; padding-top: 1.5rem; padding-bottom: 1.5rem;">
+              <span aria-hidden="true" class="inner-span" style="font-size: 3rem; color: rgba(255,255,255,0.7); font-weight: normal; font-family: sans-serif; text-transform: uppercase; letter-spacing: 2px;">
+                REACT JS &nbsp; ✦ &nbsp; NODE.JS &nbsp; ✦ &nbsp; KUBERNETES &nbsp; ✦ &nbsp; DOCKER &nbsp; ✦ &nbsp; PYTHON &nbsp; ✦ &nbsp; AI AGENTS &nbsp; ✦ &nbsp; MONGODB &nbsp; ✦ &nbsp; AWS &nbsp; ✦ &nbsp; 
+              </span>
+              <span class="inner-span" style="font-size: 3rem; color: rgba(255,255,255,0.7); font-weight: normal; font-family: sans-serif; text-transform: uppercase; letter-spacing: 2px;">
+                REACT JS &nbsp; ✦ &nbsp; NODE.JS &nbsp; ✦ &nbsp; KUBERNETES &nbsp; ✦ &nbsp; DOCKER &nbsp; ✦ &nbsp; PYTHON &nbsp; ✦ &nbsp; AI AGENTS &nbsp; ✦ &nbsp; MONGODB &nbsp; ✦ &nbsp; AWS &nbsp; ✦ &nbsp; 
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="line-wrapper">
+          <span class="home__projects__line right" style="visibility: visible;">
+            <span style="transform: scaleX(1);"></span>
+          </span>
+        </div>
+      </section>
+<section class="home__projects" data-projects-section-1=""><span class="home__projects__line left"><span></span></span><div class="home__projects__project right">
       
     <div class="home__projects__project__label">
       <div class="label__inner label-1">
@@ -464,6 +502,23 @@
           <a href="#" target="_blank" rel="noopener noreferrer">NODE.JS</a>, and
           <a href="#" target="_blank" rel="noopener noreferrer">KUBERNETES</a>.
         </p>
+        <div data-fade-in="" style="margin-top: 40px; background: #1a1a1a; border-radius: 8px; border: 1px solid #333; overflow: hidden; font-family: 'Courier New', Courier, monospace; font-size: 0.95rem; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+          <div style="background: #2d2d2d; padding: 10px 15px; display: flex; gap: 8px; align-items: center;">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></div>
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></div>
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></div>
+            <span style="margin-left: 10px; color: #888; font-size: 0.8rem;">guest@praneeth-portfolio: ~</span>
+          </div>
+          <div id="terminal-body" style="padding: 20px; height: 250px; overflow-y: auto; color: #ddd; display: flex; flex-direction: column;">
+            <div style="margin-bottom: 10px;">Type <span style="color: #27c93f;">'help'</span> to see available commands.</div>
+            <div id="terminal-output" style="flex-grow: 1;"></div>
+            <div style="display: flex; gap: 10px; margin-top: 10px; align-items: center;">
+              <span style="color: #27c93f;">➜</span>
+              <span style="color: #58a6ff;">~</span>
+              <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" style="background: transparent; border: none; color: white; outline: none; flex-grow: 1; font-family: inherit; font-size: inherit; width: 100%;">
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="home__awards">
@@ -638,4 +693,11 @@
     <script src="js/index.js" type="module"></script>
   
 
+<a href='404.html' style='display:none'></a>
+    <!-- BACK TO TOP BUTTON -->
+    <div id="back-to-top" style="position: fixed; bottom: -60px; right: 20px; width: 45px; height: 45px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999; backdrop-filter: blur(5px); transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), background 0.3s; color: white;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </div>
 </body></html>
