@@ -19,10 +19,10 @@
   },
   "dependencies": {
     "gsap": "^3.7.0",
-    "loconative-scroll": "https://github.com/quentinhocde/loconative-scroll"
+    "loconative-scroll": "git+https://github.com/quentinhocde/loconative-scroll.git"
   },
   "engines": {
-    "node": "22.x"
+    "node": "18.x"
   }
 
 }
