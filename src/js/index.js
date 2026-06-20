@@ -180,6 +180,28 @@ export default class Home {
         toCopyText.textContent = "Click To Copy";
       }, 2000);
     });
+
+    const viewMoreBtn = document.getElementById("view-more-btn");
+    const moreProjects = document.getElementById("more-projects");
+    if (viewMoreBtn && moreProjects) {
+      viewMoreBtn.addEventListener("click", () => {
+        if (moreProjects.style.display === "none") {
+          moreProjects.style.display = "block";
+          viewMoreBtn.textContent = "VIEW LESS PROJECTS";
+          setTimeout(() => {
+            this.locomotive.update();
+            ScrollTrigger.refresh();
+          }, 100);
+        } else {
+          moreProjects.style.display = "none";
+          viewMoreBtn.textContent = "VIEW MORE PROJECTS";
+          setTimeout(() => {
+            this.locomotive.update();
+            ScrollTrigger.refresh();
+          }, 100);
+        }
+      });
+    }
   }
 
   homeIntro() {
