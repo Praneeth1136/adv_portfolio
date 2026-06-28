@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { copyText } from "./utils/index";
 import { mapEach } from "./utils/dom";
 import Time from "./components/Time";
+import emailjs from '@emailjs/browser';
 
 const toContactButtons = document.querySelectorAll(".contact-scroll");
 const footer = document.getElementById("js-footer");
@@ -19,7 +20,11 @@ const scroll = new LoconativeScroll({
   smooth: true,
   lerp: 0.06,
   tablet: {
+    smooth: false,
     breakpoint: 768,
+  },
+  smartphone: {
+    smooth: false,
   },
 });
 
@@ -490,6 +495,38 @@ document.addEventListener("DOMContentLoaded", () => {
     // Click to scroll to top
     backToTop.addEventListener("click", () => {
       scroll.scrollTo(0, { duration: 1000, easing: [0.25, 0.0, 0.35, 1.0] });
+    });
+  }
+
+  // 5. EmailJS Form Submission
+  const contactForm = document.getElementById("contact-form");
+  const submitBtn = document.getElementById("contact-submit-btn");
+
+  if (contactForm && submitBtn) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "SENDING...";
+      submitBtn.style.pointerEvents = "none";
+      submitBtn.style.opacity = "0.7";
+
+      emailjs.sendForm("service_swwp8hp", "template_n173wlk", contactForm, {
+        publicKey: "6RBPWTVq7FNR0ndNG",
+      })
+        .then(() => {
+          // Success! Redirect to our custom professional thanks page
+          window.location.href = "/thanks.html";
+        })
+        .catch((error) => {
+          console.error("EmailJS Error:", error);
+          submitBtn.textContent = "FAILED. TRY AGAIN";
+          setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.style.pointerEvents = "auto";
+            submitBtn.style.opacity = "1";
+          }, 3000);
+        });
     });
   }
 });

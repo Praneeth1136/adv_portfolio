@@ -5,7 +5,8 @@
   word-break: break-word;
 
   @include media("<=phone") {
-    font-size: 160px;
+    font-size: 80px;
+    word-break: break-word;
   }
 }
 
@@ -15,7 +16,7 @@
   letter-spacing: -0.025em;
 
   @include media("<=phone") {
-    font-size: 80px;
+    font-size: 50px;
     word-break: break-word;
   }
 }

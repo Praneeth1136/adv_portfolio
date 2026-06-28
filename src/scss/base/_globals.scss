@@ -21,6 +21,7 @@ body {
   font-size: 1.6rem;
   background: $col-black;
   color: $col-gray;
+  overflow-x: hidden;
 }
 
 /*! loconative-scroll v1.0.2 | MIT License | https://github.com/quentinhocde/loconative-scroll */
@@ -38,6 +39,7 @@ html,
 body {
   width: 100%;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
