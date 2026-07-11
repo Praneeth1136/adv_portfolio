@@ -511,7 +511,13 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.style.pointerEvents = "none";
       submitBtn.style.opacity = "0.7";
 
-      emailjs.sendForm("service_swwp8hp", "template_n173wlk", contactForm, {
+      const templateParams = {
+        name: contactForm.querySelector('[name="user_name"]').value,
+        email: contactForm.querySelector('[name="user_email"]').value,
+        message: contactForm.querySelector('[name="message"]').value
+      };
+
+      emailjs.send("service_swwp8hp", "template_n173wlk", templateParams, {
         publicKey: "6RBPWTVq7FNR0ndNG",
       })
         .then(() => {
