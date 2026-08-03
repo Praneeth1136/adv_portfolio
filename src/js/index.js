@@ -5,6 +5,7 @@ import { copyText } from "./utils/index";
 import { mapEach } from "./utils/dom";
 import Time from "./components/Time";
 import emailjs from '@emailjs/browser';
+import { init3D } from "./3d-scene.js";
 
 const toContactButtons = document.querySelectorAll(".contact-scroll");
 const footer = document.getElementById("js-footer");
@@ -72,7 +73,6 @@ class Cursor {
     if (!this.el || !window.matchMedia("(any-pointer: fine)").matches) return;
 
     this.mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    // dot follows fast, ring trails for an elastic feel
     this.dotPos = { ...this.mouse };
     this.ringPos = { ...this.mouse };
     this.dotSpeed = 0.35;
@@ -83,7 +83,6 @@ class Cursor {
       this.mouse.y = e.clientY;
     });
 
-    // grow cursor over interactive elements
     const hoverTargets = document.querySelectorAll(
       "a, button, .home__projects__project__link, .c-button, .email"
     );
@@ -94,7 +93,6 @@ class Cursor {
       );
     });
 
-    // hide when pointer leaves the window
     document.addEventListener("mouseleave", () => (this.el.style.opacity = 0));
     document.addEventListener("mouseenter", () => (this.el.style.opacity = 1));
 
@@ -177,34 +175,14 @@ export default class Home {
       };
     });
 
-    emailButton.addEventListener("click", (e) => {
-      copyText(e);
-      toCopyText.textContent = "copied";
+    if (emailButton) {
+      emailButton.addEventListener("click", (e) => {
+        copyText(e);
+        toCopyText.textContent = "copied";
 
-      setTimeout(() => {
-        toCopyText.textContent = "Click To Copy";
-      }, 2000);
-    });
-
-    const viewMoreBtn = document.getElementById("view-more-btn");
-    const moreProjects = document.getElementById("more-projects");
-    if (viewMoreBtn && moreProjects) {
-      viewMoreBtn.addEventListener("click", () => {
-        if (moreProjects.style.display === "none") {
-          moreProjects.style.display = "block";
-          viewMoreBtn.textContent = "VIEW LESS PROJECTS";
-          setTimeout(() => {
-            this.locomotive.update();
-            ScrollTrigger.refresh();
-          }, 100);
-        } else {
-          moreProjects.style.display = "none";
-          viewMoreBtn.textContent = "VIEW MORE PROJECTS";
-          setTimeout(() => {
-            this.locomotive.update();
-            ScrollTrigger.refresh();
-          }, 100);
-        }
+        setTimeout(() => {
+          toCopyText.textContent = "Click To Copy";
+        }, 2000);
       });
     }
   }
@@ -223,7 +201,6 @@ export default class Home {
       yPercent: -100,
       ease: "power4.out",
     })
-      // per-letter staggered reveal of the hero headline
       .from(
         ".hero__hover",
         {
@@ -290,7 +267,6 @@ export default class Home {
       });
     });
 
-    // project titles clip-reveal on scroll (desktop)
     if (window.innerWidth > 768) {
       gsap.utils.toArray(".home__projects__project__title").forEach((el) => {
         const inner = el.querySelector(".title__main");
@@ -324,24 +300,6 @@ export default class Home {
           },
           ease: "power4.out",
         });
-      });
-
-      const awardsTl = gsap.timeline({
-        defaults: {
-          ease: "power1.out",
-        },
-        scrollTrigger: {
-          trigger: ".home__awards",
-          scroller: "[data-scroll-container]",
-        },
-      });
-      awardsTl.from(".awards__title span", {
-        duration: 1,
-        opacity: 0,
-        yPercent: 100,
-        stagger: {
-          amount: 0.2,
-        },
       });
     }
   }
@@ -391,8 +349,6 @@ class Preloader {
   }
 
   reveal() {
-    // Reveal the site content underneath FIRST, while the preloader still
-    // covers the screen — then wipe the preloader away over the live site.
     this.onComplete();
 
     const tl = gsap.timeline({
@@ -420,119 +376,65 @@ class Preloader {
   }
 }
 
-// Gate the site intro behind the preloader.
-// Home initialises the moment the counter finishes (content revealed underneath),
-// then the preloader wipes away to show it — no flash of hidden content.
+// Initialize 3D scene
+let scene3D = null;
+
+// Gate the site intro behind the preloader
 new Preloader(() => {
+  scene3D = init3D();
   new Home(scroll);
   setTimeout(() => scroll.update(), 100);
 });
-// --- EXTRA ADDONS ---
-document.addEventListener("DOMContentLoaded", () => {
 
-  // 2. Interactive Terminal
-  const termInput = document.getElementById("terminal-input");
-  const termOutput = document.getElementById("terminal-output");
-  const termBody = document.getElementById("terminal-body");
+// Back to top button
+const backToTop = document.getElementById("back-to-top");
+if (backToTop) {
+  scroll.on("scroll", (args) => {
+    if (args.scroll.y > 500) {
+      backToTop.style.bottom = "20px";
+    } else {
+      backToTop.style.bottom = "-60px";
+    }
+  });
 
-  if (termInput && termOutput) {
-    termBody.addEventListener("click", () => termInput.focus());
+  backToTop.addEventListener("click", () => {
+    scroll.scrollTo(0, { duration: 1000, easing: [0.25, 0.0, 0.35, 1.0] });
+  });
+}
 
-    termInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        const cmd = termInput.value.trim().toLowerCase();
-        let response = "";
-        
-        termOutput.innerHTML += `<div style="display: flex; gap: 10px; margin-top: 10px;">
-          <span style="color: #27c93f;">➜</span>
-          <span style="color: #58a6ff;">~</span>
-          <span>${termInput.value}</span>
-        </div>`;
+// EmailJS Form Submission
+const contactForm = document.getElementById("contact-form");
+const submitBtn = document.getElementById("contact-submit-btn");
 
-        switch(cmd) {
-          case "help":
-            response = "Available commands: <br> - <span style='color: #ffbd2e;'>whoami</span>: Learn about me <br> - <span style='color: #ffbd2e;'>skills</span>: View my tech stack <br> - <span style='color: #ffbd2e;'>clear</span>: Clear terminal";
-            break;
-          case "whoami":
-            response = "Praneeth Kilaparthi. Full-Stack Engineer specializing in React, Node.js, and Agentic AI. Currently seeking SWE roles.";
-            break;
-          case "skills":
-            response = "Python, Java, React, Node.js, Kubernetes, Docker, AWS, LangChain.";
-            break;
-          case "clear":
-            termOutput.innerHTML = "";
-            break;
-          case "":
-            break;
-          default:
-            response = `Command not found: ${cmd}. Type 'help' for available commands.`;
-        }
+if (contactForm && submitBtn) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "SENDING...";
+    submitBtn.style.pointerEvents = "none";
+    submitBtn.style.opacity = "0.7";
 
-        if (response) {
-          termOutput.innerHTML += `<div style="margin-top: 5px; color: #ddd; line-height: 1.5;">${response}</div>`;
-        }
+    const templateParams = {
+      name: contactForm.querySelector('[name="user_name"]').value,
+      email: contactForm.querySelector('[name="user_email"]').value,
+      message: contactForm.querySelector('[name="message"]').value
+    };
 
-        termInput.value = "";
-        setTimeout(() => {
-          termBody.scrollTop = termBody.scrollHeight;
-        }, 10);
-      }
-    });
-  }
-
-  // 4. Back to Top Button
-  const backToTop = document.getElementById("back-to-top");
-  if (backToTop) {
-    // Show/hide based on scroll
-    scroll.on("scroll", (args) => {
-      if (args.scroll.y > 500) {
-        backToTop.style.bottom = "20px";
-      } else {
-        backToTop.style.bottom = "-60px";
-      }
-    });
-
-    // Click to scroll to top
-    backToTop.addEventListener("click", () => {
-      scroll.scrollTo(0, { duration: 1000, easing: [0.25, 0.0, 0.35, 1.0] });
-    });
-  }
-
-  // 5. EmailJS Form Submission
-  const contactForm = document.getElementById("contact-form");
-  const submitBtn = document.getElementById("contact-submit-btn");
-
-  if (contactForm && submitBtn) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = "SENDING...";
-      submitBtn.style.pointerEvents = "none";
-      submitBtn.style.opacity = "0.7";
-
-      const templateParams = {
-        name: contactForm.querySelector('[name="user_name"]').value,
-        email: contactForm.querySelector('[name="user_email"]').value,
-        message: contactForm.querySelector('[name="message"]').value
-      };
-
-      emailjs.send("service_swwp8hp", "template_n173wlk", templateParams, {
-        publicKey: "6RBPWTVq7FNR0ndNG",
+    emailjs.send("service_swwp8hp", "template_n173wlk", templateParams, {
+      publicKey: "6RBPWTVq7FNR0ndNG",
+    })
+      .then(() => {
+        window.location.href = "/thanks.html";
       })
-        .then(() => {
-          // Success! Redirect to our custom professional thanks page
-          window.location.href = "/thanks.html";
-        })
-        .catch((error) => {
-          console.error("EmailJS Error:", error);
-          submitBtn.textContent = "FAILED. TRY AGAIN";
-          setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.style.pointerEvents = "auto";
-            submitBtn.style.opacity = "1";
-          }, 3000);
-        });
-    });
-  }
-});
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        submitBtn.textContent = "FAILED. TRY AGAIN";
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.style.pointerEvents = "auto";
+          submitBtn.style.opacity = "1";
+        }, 3000);
+      });
+  });
+}

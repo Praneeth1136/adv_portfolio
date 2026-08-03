@@ -9,20 +9,16 @@
     <link rel="icon" href="/favicon.ico"> 
     <meta name="description" content="Full-Stack Engineer based in India building scalable distributed systems and agentic AI applications with React, Node.js, and Kubernetes.">
     <meta property="og:image" content="https://praneethkilaparthi.dev/og-image.jpg">
-
     <meta property="twitter:card" content="summary_large_image">  
     <meta property="twitter:url" content="https://praneethkilaparthi.dev">
     <meta property="twitter:title" content="Praneeth Kilaparthi — Full-Stack Engineer">
     <meta property="twitter:description" content="Full-Stack Engineer based in India building scalable distributed systems and agentic AI applications with React, Node.js, and Kubernetes.">
     <meta property="twitter:image" content="https://praneethkilaparthi.dev/og-image.jpg">
-
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://praneethkilaparthi.dev">
     <meta property="og:title" content="Praneeth Kilaparthi — Full-Stack Engineer">
     <meta property="og:description" content="Full-Stack Engineer based in India building scalable distributed systems and agentic AI applications with React, Node.js, and Kubernetes.">
     <meta property="og:image" content="https://praneethkilaparthi.dev/og-image.jpg">
-
-    <script type="text/javascript" src="//w.24timezones.com/l.js" async=""></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -31,26 +27,26 @@
 
     <link rel="stylesheet" href="scss/index.scss">
     <style>
-    ::selection {
-      background-color: #ffffff;
-      color: #000000;
-    }
-  </style>
+        ::selection {
+            background-color: #ffffff;
+            color: #000000;
+        }
+    </style>
 </head>
 
-  <body>
+<body>
     <div class="c-cursor">
-      <div class="c-cursor__ring"></div>
-      <div class="c-cursor__dot"></div>
+        <div class="c-cursor__ring"></div>
+        <div class="c-cursor__dot"></div>
     </div>
 
     <!-- Page-load preloader -->
     <div class="c-preloader" id="js-preloader">
-      <div class="c-preloader__inner">
-        <span class="c-preloader__name">PRANEETH KILAPARTHI</span>
-        <span class="c-preloader__role">FULL-STACK ENGINEER</span>
-      </div>
-      <div class="c-preloader__count"><span id="js-counter">0</span></div>
+        <div class="c-preloader__inner">
+            <span class="c-preloader__name">PRANEETH KILAPARTHI</span>
+            <span class="c-preloader__role">FULL-STACK ENGINEER</span>
+        </div>
+        <div class="c-preloader__count"><span id="js-counter">0</span></div>
     </div>
 
     <!-- Scroll progress bar -->
@@ -58,189 +54,161 @@
 
     <!-- Film grain overlay -->
     <div class="c-grain" aria-hidden="true"></div>
+    
     <main class="home" data-scroll-container="">
-    <!-- AMBIENT GRADIENT GLOW -->
-    <div style="position: absolute; top: -20%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(120,0,255,0.15) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: -1; animation: pulseGlow 10s infinite alternate;"></div>
-    <div style="position: absolute; top: 10%; right: -10%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(255,100,0,0.1) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: -1; animation: pulseGlow 8s infinite alternate-reverse;"></div>
-    <style>
-      @keyframes pulseGlow {
-        0% { transform: scale(1) translate(0, 0); opacity: 0.8; }
-        100% { transform: scale(1.2) translate(50px, 50px); opacity: 1; }
-      }
-    </style>
+        <!-- 3D Scene Container -->
+        <div id="three-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1;"></div>
 
-      <nav class="home__nav">
-        <div class="home__nav__left">
-          <div class="nav__name" nav-anim="">
-            <span>
-              Praneeth <br>
-              Kilaparthi</span>
-          </div>
-
-          <div class="nav__folio hide-mobile" nav-anim="">
-            <span>
-              Full-Stack Developer <br>
-              Portfolio / 2023 — Present
-            </span> 
-          </div>
-        </div>
-
-        <div class="home__nav__right">
-          <div class="nav__folio hide-desktop" nav-anim="">
-            Full-Stack Developer <br>
-            Portfolio / 2023 — Present
-          </div>
-
-          <div class="nav__availability" nav-anim=""></div>
-
-          <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer" class="nav__button c-button" nav-anim="" style="margin-right: 15px;">
-            <span class="c-link">
-              <span class="c-link__inner">
-                <span> github </span>
-                <span class="c-link__animated"> github </span>
-              </span>
-            </span>
-          </a>
-          <a href="https://linkedin.com/in/praneeth-986bab325/" target="_blank" rel="noopener noreferrer" class="nav__button c-button" nav-anim="" style="margin-right: 15px;">
-            <span class="c-link">
-              <span class="c-link__inner">
-                <span> linkedin </span>
-                <span class="c-link__animated"> linkedin </span>
-              </span>
-            </span>
-          </a>
-          <button class="nav__button c-button contact-scroll" nav-anim="">
-            <span class="c-link">
-              <span class="c-link__inner">
-                <span> contact </span>
-                <span class="c-link__animated"> contact </span>
-              </span>
-            </span>
-          </button>
-        </div>
-      </nav>
-
-      <section class="home__hero">
-        <div class="hero__title">
-          <h1 class="mobile">
-            FULL <br>
-            —— STACK <br>
-            ENGINEER
-          </h1>
-          <h1 class="hero__title__top overflow desktop">
-            <div class="hero__title__top" title-overflow="">
-              <span class="hero__title__left" data-scroll="" data-scroll-direction="horizontal" data-scroll-position="top" data-scroll-speed="7">
-                <span class="hero__hover">F</span>
-                <span class="hero__hover">U</span>
-                <span class="hero__hover">L</span>
-                <span class="hero__hover">L</span>
-              </span>
-              <span class="hero__title__dash desktop">——</span>
-              <span class="hero__title__dash tablet">——</span>
-
-              <span class="hero__title__right" data-scroll="" data-scroll-direction="horizontal" data-scroll-position="top" data-scroll-speed="-7">
-                <span class="hero__hover">S</span>
-                <span class="hero__hover">T</span>
-                <span class="hero__hover">A</span>
-                <span class="hero__hover">C</span>
-                <span class="hero__hover">K</span>
-              </span>
+        <nav class="home__nav">
+            <div class="home__nav__left">
+                <div class="nav__name" nav-anim="">
+                    <span>Praneeth <br> Kilaparthi</span>
+                </div>
+                <div class="nav__folio hide-mobile" nav-anim="">
+                    <span>Full-Stack Developer <br> Portfolio / 2023 — Present</span> 
+                </div>
             </div>
-          </h1>
 
-          <span class="hero__title__bottom overflow">
-            <div class="hero__title__bottom">
-              <h1 class="bottom__left desktop" title-overflow="">
-                <span class="hero__hover">E</span>
-                <span class="hero__hover">N</span>
-                <span class="hero__hover">G</span>
-                <span class="hero__hover">I</span>
-                <span class="hero__hover">N</span>
-                <span class="hero__hover">E</span>
-                <span class="hero__hover">E</span>
-                <span class="hero__hover">R</span>
-              </h1>
-              <div class="bottom__right">
-                <p class="hero__paragraph">
-                  <span class="first-word">About</span> &nbsp; I am a BTech
-                  Computer Science student based in India building full-stack
-                  applications and distributed systems, specializing in the
-                  <span>React Ecosystem</span>, <span>Node.js</span>, and
-                  <span>Agentic AI</span> to ship production-ready
-                  products.
-                </p>
-                <div style="margin-top: 30px; margin-bottom: 30px;">
-                  <!-- <a href="resume.pdf" download="Praneeth_Kilaparthi_Resume.pdf" target="_blank" rel="noopener noreferrer" class="c-button" style="border: 1px solid rgba(255,255,255,0.3); padding: 12px 24px; border-radius: 30px; display: inline-block;">
+            <div class="home__nav__right">
+                <div class="nav__folio hide-desktop" nav-anim="">
+                    Full-Stack Developer <br> Portfolio / 2023 — Present
+                </div>
+
+                <div class="nav__availability" nav-anim=""></div>
+
+                <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer" class="nav__button c-button" nav-anim="">
                     <span class="c-link">
-                      <span class="c-link__inner">
-                        <span> VIEW RESUME </span>
-                        <span class="c-link__animated"> VIEW RESUME </span>
-                      </span>
+                        <span class="c-link__inner">
+                            <span>github</span>
+                            <span class="c-link__animated">github</span>
+                        </span>
                     </span>
-                  </a> -->
-                  <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="c-button">
-                  <span class="c-link">
-                    <span class="c-link__inner">
-                      <span> VIEW RESUME </span>
-                      <span class="c-link__animated"> VIEW RESUME </span>
-                    </span>
-                  </span>
                 </a>
-                </div>
-                <div class="hero__scroll">
-                  <p>Scroll down</p>
-                  <div class="c-infinite">
+                <a href="https://linkedin.com/in/praneeth-986bab325/" target="_blank" rel="noopener noreferrer" class="nav__button c-button" nav-anim="">
                     <span class="c-link">
-                      <span class="c-link__inner">
-                        <span>
-                          <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.8333 13.9766L15.3033 9.50658L16.4816 10.6849L9.99998 17.1666L3.51831 10.6849L4.69664 9.50658L9.16664 13.9766V3.83325H10.8333V13.9766Z" fill="#777777"></path>
-                          </svg>
+                        <span class="c-link__inner">
+                            <span>linkedin</span>
+                            <span class="c-link__animated">linkedin</span>
                         </span>
-                        <span class="c-link__animated">
-                          <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.8333 13.9766L15.3033 9.50658L16.4816 10.6849L9.99998 17.1666L3.51831 10.6849L4.69664 9.50658L9.16664 13.9766V3.83325H10.8333V13.9766Z" fill="#777777"></path>
-                          </svg>
-                        </span>
-                      </span>
                     </span>
-                  </div>
+                </a>
+                <button class="nav__button c-button contact-scroll" nav-anim="">
+                    <span class="c-link">
+                        <span class="c-link__inner">
+                            <span>contact</span>
+                            <span class="c-link__animated">contact</span>
+                        </span>
+                    </span>
+                </button>
+            </div>
+        </nav>
+
+        <section class="home__hero">
+            <div class="hero__title">
+                <h1 class="mobile">
+                    FULL <br> —— STACK <br> ENGINEER
+                </h1>
+                <h1 class="hero__title__top overflow desktop">
+                    <div class="hero__title__top" title-overflow="">
+                        <span class="hero__title__left" data-scroll="" data-scroll-direction="horizontal" data-scroll-position="top" data-scroll-speed="7">
+                            <span class="hero__hover">F</span>
+                            <span class="hero__hover">U</span>
+                            <span class="hero__hover">L</span>
+                            <span class="hero__hover">L</span>
+                        </span>
+                        <span class="hero__title__dash desktop">——</span>
+                        <span class="hero__title__dash tablet">——</span>
+                        <span class="hero__title__right" data-scroll="" data-scroll-direction="horizontal" data-scroll-position="top" data-scroll-speed="-7">
+                            <span class="hero__hover">S</span>
+                            <span class="hero__hover">T</span>
+                            <span class="hero__hover">A</span>
+                            <span class="hero__hover">C</span>
+                            <span class="hero__hover">K</span>
+                        </span>
+                    </div>
+                </h1>
+
+                <span class="hero__title__bottom overflow">
+                    <div class="hero__title__bottom">
+                        <h1 class="bottom__left desktop" title-overflow="">
+                            <span class="hero__hover">E</span>
+                            <span class="hero__hover">N</span>
+                            <span class="hero__hover">G</span>
+                            <span class="hero__hover">I</span>
+                            <span class="hero__hover">N</span>
+                            <span class="hero__hover">E</span>
+                            <span class="hero__hover">E</span>
+                            <span class="hero__hover">R</span>
+                        </h1>
+                        <div class="bottom__right">
+                            <p class="hero__paragraph">
+                                <span class="first-word">About</span>&nbsp;&nbsp;I am a BTech Computer Science student based in India building full-stack applications and distributed systems, specializing in the <span>React Ecosystem</span>, <span>Node.js</span>, and <span>Agentic AI</span>.
+                            </p>
+                            <div style="margin-top: 30px; margin-bottom: 30px;">
+                                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="c-button">
+                                    <span class="c-link">
+                                        <span class="c-link__inner">
+                                            <span>VIEW RESUME</span>
+                                            <span class="c-link__animated">VIEW RESUME</span>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="hero__scroll">
+                                <p>Scroll down</p>
+                                <div class="c-infinite">
+                                    <span class="c-link">
+                                        <span class="c-link__inner">
+                                            <span>
+                                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10.8333 13.9766L15.3033 9.50658L16.4816 10.6849L9.99998 17.1666L3.51831 10.6849L4.69664 9.50658L9.16664 13.9766V3.83325H10.8333V13.9766Z" fill="#777777"></path>
+                                                </svg>
+                                            </span>
+                                            <span class="c-link__animated">
+                                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10.8333 13.9766L15.3033 9.50658L16.4816 10.6849L9.99998 17.1666L3.51831 10.6849L4.69664 9.50658L9.16664 13.9766V3.83325H10.8333V13.9766Z" fill="#777777"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </section>
+
+        <!-- SKILLS MARQUEE -->
+        <section class="home__contact" style="padding-top: 0; padding-bottom: 6rem; margin-top: -4rem;">
+            <div class="line-wrapper">
+                <span class="home__projects__line left" style="visibility: visible;">
+                    <span style="transform: scaleX(1);"></span>
+                </span>
+            </div>
+
+            <div class="marquee" style="background: rgba(255,255,255,0.02);">
+                <div class="marquee__wrap">
+                    <div class="marquee__inner" style="animation: marquee 35s linear infinite; padding-top: 1.5rem; padding-bottom: 1.5rem;">
+                        <span aria-hidden="true" class="inner-span" style="font-size: 3rem; color: rgba(255,255,255,0.7); font-weight: normal; font-family: sans-serif; text-transform: uppercase; letter-spacing: 2px;">
+                            REACT JS &nbsp; ✦ &nbsp; NODE.JS &nbsp; ✦ &nbsp; KUBERNETES &nbsp; ✦ &nbsp; DOCKER &nbsp; ✦ &nbsp; PYTHON &nbsp; ✦ &nbsp; AI AGENTS &nbsp; ✦ &nbsp; MONGODB &nbsp; ✦ &nbsp; AWS &nbsp; ✦ &nbsp; 
+                        </span>
+                        <span class="inner-span" style="font-size: 3rem; color: rgba(255,255,255,0.7); font-weight: normal; font-family: sans-serif; text-transform: uppercase; letter-spacing: 2px;">
+                            REACT JS &nbsp; ✦ &nbsp; NODE.JS &nbsp; ✦ &nbsp; KUBERNETES &nbsp; ✦ &nbsp; DOCKER &nbsp; ✦ &nbsp; PYTHON &nbsp; ✦ &nbsp; AI AGENTS &nbsp; ✦ &nbsp; MONGODB &nbsp; ✦ &nbsp; AWS &nbsp; ✦ &nbsp; 
+                        </span>
+                    </div>
                 </div>
-              </div>
             </div>
-          </span>
-        </div>
-      </section>
 
-      
-      <!-- SKILLS MARQUEE ADDON -->
-      <section class="home__contact" style="padding-top: 0; padding-bottom: 6rem; margin-top: -4rem;">
-        <div class="line-wrapper">
-          <span class="home__projects__line left" style="visibility: visible;">
-            <span style="transform: scaleX(1);"></span>
-          </span>
-        </div>
-
-        <div class="marquee" style="background: rgba(255,255,255,0.02);">
-          <div class="marquee__wrap">
-            <div class="marquee__inner" style="animation: marquee 35s linear infinite; padding-top: 1.5rem; padding-bottom: 1.5rem;">
-              <span aria-hidden="true" class="inner-span" style="font-size: 3rem; color: rgba(255,255,255,0.7); font-weight: normal; font-family: sans-serif; text-transform: uppercase; letter-spacing: 2px;">
-                REACT JS &nbsp; ✦ &nbsp; NODE.JS &nbsp; ✦ &nbsp; KUBERNETES &nbsp; ✦ &nbsp; DOCKER &nbsp; ✦ &nbsp; PYTHON &nbsp; ✦ &nbsp; AI AGENTS &nbsp; ✦ &nbsp; MONGODB &nbsp; ✦ &nbsp; AWS &nbsp; ✦ &nbsp; 
-              </span>
-              <span class="inner-span" style="font-size: 3rem; color: rgba(255,255,255,0.7); font-weight: normal; font-family: sans-serif; text-transform: uppercase; letter-spacing: 2px;">
-                REACT JS &nbsp; ✦ &nbsp; NODE.JS &nbsp; ✦ &nbsp; KUBERNETES &nbsp; ✦ &nbsp; DOCKER &nbsp; ✦ &nbsp; PYTHON &nbsp; ✦ &nbsp; AI AGENTS &nbsp; ✦ &nbsp; MONGODB &nbsp; ✦ &nbsp; AWS &nbsp; ✦ &nbsp; 
-              </span>
+            <div class="line-wrapper">
+                <span class="home__projects__line right" style="visibility: visible;">
+                    <span style="transform: scaleX(1);"></span>
+                </span>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <div class="line-wrapper">
-          <span class="home__projects__line right" style="visibility: visible;">
-            <span style="transform: scaleX(1);"></span>
-          </span>
-        </div>
-      </section>
-<section class="home__projects" data-projects-section-1=""><span class="home__projects__line left"><span></span></span><div class="home__projects__project right">
+        <!-- FEATURED PROJECTS -->
+        <section class="home__projects" data-projects-section-1=""><span class="home__projects__line left"><span></span></span><div class="home__projects__project right">
       
     <div class="home__projects__project__label">
       <div class="label__inner label-1">
@@ -383,311 +351,184 @@
     </div>
     </div><span class="home__projects__line left"><span></span></span></section>
 
-    <div class="home__projects__view-more" style="text-align: center; padding: 40px 0; padding-bottom: 60px;">
-      <button id="view-more-btn" style="padding: 15px 30px; font-size: 1rem; cursor: pointer; background: transparent; color: white; border: 1px solid white; transition: all 0.3s;" onmouseover="this.style.background='white'; this.style.color='black';" onmouseout="this.style.background='transparent'; this.style.color='white';">
-        VIEW MORE PROJECTS
-      </button>
-    </div>
-
-    <div id="more-projects" style="display: none; width: 100%;">
-      <section class="home__projects" data-projects-section-2=""><span class="home__projects__line left"><span></span></span><div class="home__projects__project right">
-      
-    <div class="home__projects__project__label">
-      <div class="label__inner">
-         <p>React / <br> Redux Toolkit</p>
-       </div>
-    </div>
-      
-    <a href="https://swigggy.vercel.app/" target="_blank" rel="noopener noreferrer" class="home__projects__project__link">
-      <h1 class="home__projects__project__title" data-scroll="" data-scroll-direction="horizontal" data-scroll-speed="8">
-        <span class="inline-ovh">
-          <div class="title__main right">
-            <span class="slide-up" data-content="SWIGGY — FOOD DELIVERY APP" aria-hidden="true"></span>
-            SWIGGY — FOOD DELIVERY APP
-          </div>
-        </span>
-      </h1>
-    </a>
-      
-    <div class="project__link">
-      <a href="https://swigggy.vercel.app/" target="_blank" rel="noopener noreferrer" class="c-button">
-        <span class="c-link">
-          <span class="c-link__inner">
-            <span>
-              Visit Site
-              <span class="share-icon">
-                <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13.337 7.845l-7.173 7.173-1.178-1.179 7.172-7.172H5.837V5h9.166v9.167h-1.666V7.845z" fill="#777"></path>
-                </svg>
-              </span>
-            </span>
-          </span>
-        </span>
-      </a>
-    </div>
-    </div><span class="home__projects__line right"><span></span></span><div class="home__projects__project left">
-      
-    <div class="home__projects__project__label">
-      <div class="label__inner">
-         <p>Node.js / <br> Gemini API</p>
-       </div>
-    </div>
-      
-    <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer" class="home__projects__project__link">
-      <h1 class="home__projects__project__title" data-scroll="" data-scroll-direction="horizontal" data-scroll-speed="-8">
-        <span class="inline-ovh">
-          <div class="title__main left">
-            <span class="slide-up" data-content="SMART CODE BASE — AI SEARCH ENGINE" aria-hidden="true"></span>
-            SMART CODE BASE — AI SEARCH ENGINE
-          </div>
-        </span>
-      </h1>
-    </a>
-      
-    <div class="project__link">
-      <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer" class="c-button">
-        <span class="c-link">
-          <span class="c-link__inner">
-            <span>
-              Visit Site
-              <span class="share-icon">
-                <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13.337 7.845l-7.173 7.173-1.178-1.179 7.172-7.172H5.837V5h9.166v9.167h-1.666V7.845z" fill="#777"></path>
-                </svg>
-              </span>
-            </span>
-          </span>
-        </span>
-      </a>
-    </div>
-    </div><span class="home__projects__line left"><span></span></span></section>
-    </div>
-
-      <section class="home__content" style="padding-bottom: 2rem;">
-        <h2 class="home__content__title" data-fade-in="">EXPERIENCE</h2>
-        <div class="home__content__desc" data-fade-in="">
-          <h3 style="margin-bottom: 10px; font-weight: normal; color: #fff; font-size: 1.2rem;">Full-Stack Developer Intern — Technical Hub</h3>
-          <p style="margin-bottom: 15px; opacity: 0.8; font-size: 0.9em; font-family: sans-serif;">May 2025 — Jul 2025 &nbsp;|&nbsp; <a href="https://drive.google.com/file/d/12cw34AdhQ156j6PfYu14WPT_59vzDnhp/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">Internship Letter</a></p>
-          <ul style="list-style-type: disc; margin-left: 20px; opacity: 0.8; font-size: 0.9em; line-height: 1.6; font-family: sans-serif;">
-            <li style="margin-bottom: 8px;">Engineered 5+ production pages and 12+ reusable components in React and Redux for a live client product serving 500+ daily users, cutting duplicate front-end code by 30%.</li>
-            <li style="margin-bottom: 8px;">Delivered 8+ features across 3 sprints in a 5-member Agile/Scrum team, diagnosing and debugging 20+ high-priority issues in a production environment via Git-based code review.</li>
-            <li>Implemented responsive, cross-platform interfaces validated across 5+ screen sizes.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="home__content" style="padding-bottom: 2rem;">
-        <h2 class="home__content__title" data-fade-in="">EDUCATION</h2>
-        <div class="home__content__desc" data-fade-in="">
-          <h3 style="margin-bottom: 10px; font-weight: normal; color: #fff; font-size: 1.2rem;">B.Tech in Computer Science — Aditya Engineering College</h3>
-          <p style="margin-bottom: 15px; opacity: 0.8; font-size: 0.9em; font-family: sans-serif;">Jul 2023 — May 2027 (Expected) &nbsp;|&nbsp; CGPA: 8.63/10</p>
-          
-          <h3 style="margin-bottom: 10px; font-weight: normal; color: #fff; font-size: 1.2rem;">Intermediate (MPC) — Sri Venkateswara Junior College</h3>
-          <p style="margin-bottom: 0px; opacity: 0.8; font-size: 0.9em; font-family: sans-serif;">Jun 2021 — Apr 2023 &nbsp;|&nbsp; Percentage: 93.8%</p>
-        </div>
-      </section>
-
-      <section class="home__content">
-        <h2 class="home__content__title">EXPERTISE</h2>
-        <p class="home__content__desc">
-          I build full-stack products and distributed systems end to end — from agentic AI backends to polished UIs. I specialize in
-          <a href="#" target="_blank" rel="noopener noreferrer">REACT JS</a>,
-          <a href="#" target="_blank" rel="noopener noreferrer">NODE.JS</a>, and
-          <a href="#" target="_blank" rel="noopener noreferrer">KUBERNETES</a>.
-        </p>
-        <div data-fade-in="" style="margin-top: 40px; background: #1a1a1a; border-radius: 8px; border: 1px solid #333; overflow: hidden; font-family: 'Courier New', Courier, monospace; font-size: 0.95rem; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-          <div style="background: #2d2d2d; padding: 10px 15px; display: flex; gap: 8px; align-items: center;">
-            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></div>
-            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></div>
-            <div style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></div>
-            <span style="margin-left: 10px; color: #888; font-size: 0.8rem;">guest@praneeth-portfolio: ~</span>
-          </div>
-          <div id="terminal-body" style="padding: 20px; height: 250px; overflow-y: auto; color: #ddd; display: block;">
-            <div style="margin-bottom: 10px;">Type <span style="color: #27c93f;">'help'</span> to see available commands.</div>
-            <div id="terminal-output" style="flex-grow: 1;"></div>
-            <div style="display: flex; gap: 10px; margin-top: 10px; align-items: center;">
-              <span style="color: #27c93f;">➜</span>
-              <span style="color: #58a6ff;">~</span>
-              <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" style="background: transparent; border: none; color: white; outline: none; flex-grow: 1; font-family: inherit; font-size: inherit; width: 100%;">
+        <!-- EXPERIENCE & EDUCATION -->
+        <section class="home__content" style="padding-bottom: 2rem;">
+            <h2 class="home__content__title" data-fade-in="">EXPERIENCE</h2>
+            <div class="home__content__desc" data-fade-in="">
+                <h3 style="margin-bottom: 10px; font-weight: normal; color: #fff; font-size: 1.2rem;">Full-Stack Developer Intern — Technical Hub</h3>
+                <p style="margin-bottom: 15px; opacity: 0.8; font-size: 0.9em; font-family: sans-serif;">May 2025 — Jul 2025 &nbsp;|&nbsp; <a href="https://drive.google.com/file/d/12cw34AdhQ156j6PfYu14WPT_59vzDnhp/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">Internship Letter</a></p>
+                <ul style="list-style-type: disc; margin-left: 20px; opacity: 0.8; font-size: 0.9em; line-height: 1.6; font-family: sans-serif;">
+                    <li style="margin-bottom: 8px;">Engineered 5+ production pages and 12+ reusable components in React and Redux for a live client product serving 500+ daily users.</li>
+                    <li style="margin-bottom: 8px;">Delivered 8+ features across 3 sprints in a 5-member Agile/Scrum team with production debugging experience.</li>
+                    <li>Implemented responsive, cross-platform interfaces validated across 5+ screen sizes.</li>
+                </ul>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="home__awards">
-        <div class="home__awards__left">
-          <h2 class="awards__title">
-            <a href="resume.pdf" download="Praneeth_Kilaparthi_Resume.pdf" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer; position: relative; z-index: 10;"><span>CERTIFICATIONS</span></a><br>
-            <span>&amp; HONORS</span>
-          </h2>
-          <div class="home__awards__table">
-            <div class="awards__item" data-fade-in="">
-              <a href="https://drive.google.com/file/d/1Zr5Y-F863Gyh6YzbjOOAPNvpOKSiYO-2/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Oracle Academy ⏤ Java Certification (2025)</a>
+        <section class="home__content" style="padding-bottom: 2rem;">
+            <h2 class="home__content__title" data-fade-in="">EDUCATION</h2>
+            <div class="home__content__desc" data-fade-in="">
+                <h3 style="margin-bottom: 10px; font-weight: normal; color: #fff; font-size: 1.2rem;">B.Tech in Computer Science — Aditya Engineering College</h3>
+                <p style="margin-bottom: 15px; opacity: 0.8; font-size: 0.9em; font-family: sans-serif;">Jul 2023 — May 2027 (Expected) &nbsp;|&nbsp; CGPA: 8.63/10</p>
             </div>
-            <div class="awards__item" data-fade-in="">
-              <a href="https://www.credly.com/badges/44e50417-399a-437b-9c62-8b7f6a66ad76" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">MongoDB ⏤ Associate Developer (2026)</a>
-            </div>
-            <div class="awards__item" data-fade-in="">
-              <a href="https://drive.google.com/file/d/1f3MsnvExmO4zFW8SErgJqL1ez2bjq0KH/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">GitHub ⏤ GitHub Foundations (2026)</a>
-            </div>
-            <div class="awards__item" data-fade-in="">
-              Cisco Academy ⏤ Python, C, OS, HTML, CSS (2024)
-            </div>
-          </div>
-        </div>
+        </section>
 
-        <div class="home__awards__right">
-          <div class="home__awards__stack" data-fade-in="">
-            <h2 class="home__content__title">CODING PROFILES</h2>
-            <div style="margin-bottom: 30px; font-size: 1rem; line-height: 1.8;">
-              <a href="https://leetcode.com/u/Praneethkilaparthi/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">LeetCode</a> — 100+ solved<br>
-              <a href="https://www.codechef.com/users/praneeth1136" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">CodeChef</a> — 200+ solved, Rating 1200+<br>
-              <a href="https://www.geeksforgeeks.org/profile/praneethkij1zp" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">GeeksForGeeks</a> — 60+ solved<br>
-              <a href="https://www.hackerrank.com/profile/praneethkilapar1" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">HackerRank</a> — 3★ Problem Solving
+        <!-- EXPERTISE & TECH STACK -->
+        <section class="home__awards">
+            <div class="home__awards__left">
+                <h2 class="awards__title">
+                    <span>EXPERTISE</span>
+                </h2>
+                <div class="home__awards__table">
+                    <div class="awards__item" data-fade-in="">
+                        <strong>Languages:</strong> Python, Java, JavaScript, SQL, Bash
+                    </div>
+                    <div class="awards__item" data-fade-in="">
+                        <strong>Backend:</strong> Node.js, Express, REST APIs, MongoDB
+                    </div>
+                    <div class="awards__item" data-fade-in="">
+                        <strong>Frontend:</strong> React, Redux, Tailwind CSS, HTML/CSS
+                    </div>
+                    <div class="awards__item" data-fade-in="">
+                        <strong>AI/ML:</strong> LangChain, LLM APIs, AI Agents, RAG
+                    </div>
+                </div>
             </div>
-          </div>
 
-                    <div class="home__awards__stack" data-fade-in="" style="margin-bottom: 40px;">
-            <h2 class="home__content__title">GitHub Activity</h2>
-            <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden;">
-              <img src="https://ghchart.rshah.org/FFFFFF/Praneeth1136" alt="Praneeth1136's Github chart" style="width: 100%; height: auto;">
-            </div>
-          </div>
+            <div class="home__awards__right">
+                <div class="home__awards__stack" data-fade-in="">
+                    <h2 class="home__content__title">CODING PROFILES</h2>
+                    <div style="margin-bottom: 30px; font-size: 1rem; line-height: 1.8;">
+                        <a href="https://leetcode.com/u/Praneethkilaparthi/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">LeetCode</a> — 100+ solved<br>
+                        <a href="https://www.codechef.com/users/praneeth1136" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">CodeChef</a> — 200+ solved<br>
+                    </div>
+                </div>
 
-<div class="home__awards__stack" data-fade-in="">
-            <h2 class="home__content__title">Tech Stack</h2>
-            <div style="margin-bottom: 20px; font-size: 0.95rem; line-height: 1.8; opacity: 0.8;">
-              <strong>Languages:</strong> Python, Java, JavaScript, SQL, Bash<br>
-              <strong>Core CS:</strong> DSA, DBMS, OS, OOP, Agile/Scrum<br>
-              <strong>AI / ML:</strong> LangChain, LLM APIs, AI Agents, RAG<br>
-              <strong>Web &amp; Backend:</strong> React, Node.js, Express, REST APIs, MongoDB<br>
-              <strong>DevOps &amp; Cloud:</strong> Docker, Kubernetes (K8s), AWS, Git, Linux
+                <div class="home__awards__stack" data-fade-in="">
+                    <h2 class="home__content__title">TECH STACK</h2>
+                    <div style="margin-bottom: 20px; font-size: 0.95rem; line-height: 1.8; opacity: 0.8;">
+                        <strong>DevOps:</strong> Docker, Kubernetes, AWS, Git<br>
+                        <strong>Core CS:</strong> DSA, DBMS, OS, OOP, Agile/Scrum<br>
+                        <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">View my Github</a>
+                    </div>
+                </div>
+
+                <div class="home__awards__ice" data-fade-in="">
+                    <h2 class="home__content__title">GET IN TOUCH</h2>
+                    <p class="home__content__desc">
+                        Currently seeking Software Engineering roles in full-stack and distributed systems.
+                        <button class="contact-scroll" style="display: inline; margin-left: 5px; padding: 0; background: none; border: none; text-decoration: underline; cursor: pointer; color: inherit;">Let's talk</button>.
+                    </p>
+                </div>
             </div>
-            <p class="home__content__desc" style="margin-top: 10px;">
-              <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">See my Github</a>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="home__contact">
+            <p class="home__contact__desc">
+                Got a question, proposal or project? Feel free to reach out.
             </p>
-          </div>
+            <div class="line-wrapper">
+                <span class="home__projects__line left">
+                    <span></span>
+                </span>
+            </div>
 
-          <div class="home__awards__ice" data-fade-in="">
-            <h2 class="home__content__title">CONTACT</h2>
-            <p class="home__content__desc">
-              I am currently seeking Software Engineering roles in
-              full-stack, distributed systems, and applied AI.
-              <button class="contact-scroll">GET IN TOUCH</button> to discuss
-              how I can contribute to your team.
+            <div class="marquee">
+                <a href="mailto:praneethkilaparthi@gmail.com?subject=Lets%20work%20together!" class="marquee__wrap">
+                    <div class="marquee__inner">
+                        <span aria-hidden="true" class="inner-span">
+                            <span class="slide-up" data-content="LET'S TALK — LET'S COLLABORATE — SAY HELLO" aria-hidden="true"></span>
+                            LET'S TALK — LET'S COLLABORATE — SAY HELLO</span>
+                        <span class="inner-span">
+                            <span class="slide-up" data-content="LET'S TALK — LET'S COLLABORATE — SAY HELLO" aria-hidden="true"></span>
+                            LET'S TALK — LET'S COLLABORATE — SAY HELLO</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="line-wrapper">
+                <span class="home__projects__line right">
+                    <span></span>
+                </span>
+            </div>
+
+            <div class="home__contact__email">
+                <button class="email">praneethkilaparthi@gmail.com</button>
+                <div class="to-copy">
+                    <span>Click To Copy</span>
+                </div>
+            </div>
+
+            <div style="max-width: 600px; width: 100%; box-sizing: border-box; margin: 40px auto; display: flex; flex-direction: column; gap: 15px; padding: 0 20px;">
+                <h3 style="text-align: center; font-size: 1.2rem; font-weight: normal; margin-bottom: 10px;">Or send a direct message</h3>
+                <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" name="user_name" placeholder="Your Name" required="" style="padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; font-family: inherit; font-size: 1rem; outline: none;">
+                    <input type="email" name="user_email" placeholder="Your Email" required="" style="padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; font-family: inherit; font-size: 1rem; outline: none;">
+                    <textarea name="message" placeholder="Your Message" required="" rows="4" style="padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; font-family: inherit; font-size: 1rem; resize: vertical; outline: none;"></textarea>
+                    <button type="submit" id="contact-submit-btn" style="padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.4); background: white; color: black; font-weight: bold; font-family: inherit; cursor: pointer; text-transform: uppercase; font-size: 1rem; transition: background 0.3s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='white'">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="home__footer" id="js-footer">
+            <div class="home__footer__center">
+                <div class="footer__links">
+                    <div class="link__flex">
+                        <div class="link__flex__inner">
+                            <a href="https://linkedin.com/in/praneeth-986bab325/" target="_blank" rel="noopener noreferrer" class="c-button">
+                                <span class="c-link">
+                                    <span class="c-link__inner">
+                                        <span>LINKEDIN</span>
+                                        <span class="c-link__animated">LINKEDIN</span>
+                                    </span>
+                                </span>
+                            </a>
+
+                            <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer" class="c-button">
+                                <span class="c-link">
+                                    <span class="c-link__inner">
+                                        <span>GITHUB</span>
+                                        <span class="c-link__animated">GITHUB</span>
+                                    </span>
+                                </span>
+                            </a>
+
+                            <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="c-button">
+                                <span class="c-link">
+                                    <span class="c-link__inner">
+                                        <span>RESUME</span>
+                                        <span class="c-link__animated">RESUME</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="home__footer__left">
+                <p class="place">INDIA</p>
+                <div class="time">
+                    <span data-hour=""></span>
+                    <span class="flash">:</span>
+                    <span data-minute=""></span>
+                </div>
+            </div>
+            <p class="home__footer__right">
+                Design by <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer">Praneeth</a>
             </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="home__contact">
-        <p class="home__contact__desc">
-          Got a question, proposal or project or want to work together? Feel
-          free to reach out.
-        </p>
-        <div class="line-wrapper">
-          <span class="home__projects__line left">
-            <span></span>
-          </span>
-        </div>
-
-        <div class="marquee">
-          <a href="mailto:praneethkilaparthi@gmail.com?subject=Lets%20work%20together!" class="marquee__wrap">
-            <div class="marquee__inner">
-              <span aria-hidden="true" class="inner-span">
-                <span class="slide-up" data-content="LET’S TALK — LET’S COLLABORATE — SAY HELLO" aria-hidden="true"></span>
-                LET’S TALK — LET’S COLLABORATE — SAY HELLO</span>
-              <span class="inner-span">
-                <span class="slide-up" data-content="LET’S TALK — LET’S COLLABORATE — SAY HELLO" aria-hidden="true"></span>
-                LET’S TALK — LET’S COLLABORATE — SAY HELLO</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="line-wrapper">
-          <span class="home__projects__line right">
-            <span></span>
-          </span>
-        </div>
-
-        <div class="home__contact__email">
-          <button class="email">praneethkilaparthi@gmail.com</button>
-          <div class="to-copy">
-            <span>Click To Copy</span>
-          </div>
-        </div>
-        <div style="max-width: 600px; width: 100%; box-sizing: border-box; margin: 40px auto; display: flex; flex-direction: column; gap: 15px; padding: 0 20px;">
-          <h3 style="text-align: center; font-size: 1.2rem; font-weight: normal; margin-bottom: 10px;">Or send a direct message</h3>
-          <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
-            <input type="text" name="user_name" placeholder="Your Name" required="" style="padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; font-family: inherit; font-size: 1rem; outline: none;">
-            <input type="email" name="user_email" placeholder="Your Email" required="" style="padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; font-family: inherit; font-size: 1rem; outline: none;">
-            <textarea name="message" placeholder="Your Message" required="" rows="4" style="padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; font-family: inherit; font-size: 1rem; resize: vertical; outline: none;"></textarea>
-            <button type="submit" id="contact-submit-btn" style="padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.4); background: white; color: black; font-weight: bold; font-family: inherit; cursor: pointer; text-transform: uppercase; font-size: 1rem; transition: background 0.3s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='white'">Send Message</button>
-          </form>
-        </div>
-      </section>
-
-      <footer class="home__footer" id="js-footer">
-        <div class="home__footer__center">
-          <div class="footer__links">
-            <div class="link__flex">
-              <div class="link__flex__inner">
-                <a href="https://linkedin.com/in/praneeth-986bab325/" target="_blank" rel="noopener noreferrer" class="c-button">
-                  <span class="c-link">
-                    <span class="c-link__inner">
-                      <span> LINKEDIN </span>
-                      <span class="c-link__animated"> LINKEDIN </span>
-                    </span>
-                  </span>
-                </a>
-
-                <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer" class="c-button">
-                  <span class="c-link">
-                    <span class="c-link__inner">
-                      <span> GITHUB </span>
-                      <span class="c-link__animated"> GITHUB </span>
-                    </span>
-                  </span>
-                </a>
-
-
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="c-button">
-                  <span class="c-link">
-                    <span class="c-link__inner">
-                      <span> RESUME </span>
-                      <span class="c-link__animated"> RESUME </span>
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="home__footer__left">
-          <p class="place">INDIA</p>
-          <div class="time">
-            <span data-hour=""></span>
-            <span class="flash">:</span>
-            <span data-minute=""></span>
-          </div>
-        </div>
-        <p class="home__footer__right">
-          Design by
-          <a href="" target="_blank" rel="noopener noreferrer">
-            Praneeth
-          </a>
-        </p>
-      </footer>
+        </footer>
     </main>
 
-    <script src="js/index.js" type="module"></script>
-  
-
-<a href="404.html" style="display:none"></a>
-    <!-- BACK TO TOP BUTTON -->
+    <!-- Back to top button -->
     <div id="back-to-top" style="position: fixed; bottom: -60px; right: 20px; width: 45px; height: 45px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999; backdrop-filter: blur(5px); transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), background 0.3s; color: white;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 19V5M5 12l7-7 7 7"></path>
-      </svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7"></path>
+        </svg>
     </div>
+
+    <script src="js/index.js" type="module"></script>
+
+
 </body></html>

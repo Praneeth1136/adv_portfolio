@@ -19,8 +19,11 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.7.0",
     "axios": "^1.18.1",
-    "gsap": "^3.7.0"
+    "gsap": "^3.7.0",
+    "three": "^0.185.1"
   },
   "engines": {
     "node": "24.x"
