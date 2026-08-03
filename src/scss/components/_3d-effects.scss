@@ -1,0 +1,283 @@
+/**
+ * 3D Effects & Animations
+ * Inspired by Awwwards award-winning portfolios
+ */
+
+// 3D Card Tilt Effect
+[data-3d-card] {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  
+  &:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+    box-shadow: 
+      0 20px 60px rgba(0, 255, 200, 0.1),
+      0 0 40px rgba(255, 0, 128, 0.05);
+  }
+}
+
+// Scroll reveal 3D animation
+[data-scroll-reveal-3d] {
+  opacity: 0.7;
+  transform: perspective(1000px) rotateX(30deg) translateZ(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &.revealed {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) translateZ(50px);
+  }
+}
+
+// Parallax 3D layers
+[data-parallax-layer] {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.3s ease-out;
+}
+
+// Floating 3D text
+.float-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  position: relative;
+  
+  &__text {
+    display: inline-block;
+    transform: translateZ(20px);
+  }
+}
+
+// 3D Morphing shapes canvas
+.morph-3d {
+  perspective: 1000px;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 200, 0.1), transparent);
+  border-radius: 20px;
+  overflow: hidden;
+  
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+// 3D Project cards with depth
+.home__projects__project {
+  perspective: 1000px;
+  
+  &__label {
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-style: preserve-3d;
+    
+    &:hover {
+      transform: 
+        perspective(1000px) 
+        rotateY(-8deg) 
+        rotateX(5deg) 
+        translateZ(30px)
+        scale(1.02);
+      box-shadow: 
+        0 30px 80px rgba(0, 255, 200, 0.15),
+        0 0 60px rgba(255, 0, 128, 0.08);
+      
+      .label__inner {
+        opacity: 1;
+        transform: translateZ(20px);
+      }
+    }
+  }
+  
+  &__title {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    position: relative;
+    
+    &:hover {
+      .inline-ovh {
+        transform: perspective(1000px) rotateZ(-3deg) translateZ(10px);
+      }
+    }
+  }
+}
+
+// 3D Stagger animation for project elements
+@for $i from 1 through 4 {
+  .home__projects__project:nth-child(#{$i * 2}) {
+    .home__projects__project__label {
+      animation: staggerIn#{$i} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      animation-delay: #{$i * 0.1}s;
+    }
+    
+    @keyframes staggerIn#{$i} {
+      from {
+        opacity: 0;
+        transform: perspective(1000px) rotateX(45deg) translateZ(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: perspective(1000px) rotateX(0deg) translateZ(0);
+      }
+    }
+  }
+}
+
+// Hero section 3D text effect
+.hero-3d-text {
+  perspective: 1200px;
+  position: relative;
+  
+  h1 {
+    transform-style: preserve-3d;
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    
+    span {
+      display: inline-block;
+      transform-origin: center;
+      animation: heroTextFloat 4s ease-in-out infinite;
+      
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+  
+  @keyframes heroTextFloat {
+    0%, 100% {
+      transform: translateY(0) rotateZ(0deg) translateZ(0);
+    }
+    50% {
+      transform: translateY(-20px) rotateZ(1deg) translateZ(10px);
+    }
+  }
+}
+
+// Glassmorphism 3D cards
+.glass-3d {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  perspective: 1000px;
+  transition: all 0.6s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 255, 200, 0.3);
+    transform: 
+      perspective(1000px)
+      rotateX(3deg)
+      rotateY(-3deg)
+      translateZ(20px);
+    box-shadow: 
+      0 25px 70px rgba(0, 255, 200, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+// Depth animation on scroll
+@keyframes depthPulse {
+  0%, 100% {
+    transform: translateZ(0);
+    filter: blur(0);
+  }
+  50% {
+    transform: translateZ(20px);
+    filter: blur(0.5px);
+  }
+}
+
+// 3D Glitch effect
+.glitch-3d {
+  position: relative;
+  
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    opacity: 0.8;
+  }
+  
+  &::before {
+    animation: glitch-before 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    color: rgba(0, 255, 200, 0.8);
+    z-index: -1;
+  }
+  
+  &::after {
+    animation: glitch-after 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    color: rgba(255, 0, 128, 0.8);
+    z-index: -2;
+  }
+  
+  @keyframes glitch-before {
+    0% {
+      transform: perspective(1000px) rotateY(-5deg) translateX(-2px);
+    }
+    50% {
+      transform: perspective(1000px) rotateY(5deg) translateX(2px);
+    }
+    100% {
+      transform: perspective(1000px) rotateY(-5deg) translateX(-2px);
+    }
+  }
+  
+  @keyframes glitch-after {
+    0% {
+      transform: perspective(1000px) rotateY(5deg) translateX(2px);
+    }
+    50% {
+      transform: perspective(1000px) rotateY(-5deg) translateX(-2px);
+    }
+    100% {
+      transform: perspective(1000px) rotateY(5deg) translateX(2px);
+    }
+  }
+}
+
+// Liquid 3D animation
+.liquid-3d {
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 255, 200, 0.1) 0%,
+      rgba(255, 0, 128, 0.1) 100%
+    );
+    animation: liquidWave 8s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+  
+  @keyframes liquidWave {
+    0%, 100% {
+      bottom: -50%;
+      transform: perspective(1000px) rotateX(0deg) skewY(2deg);
+    }
+    50% {
+      bottom: -30%;
+      transform: perspective(1000px) rotateX(10deg) skewY(-2deg);
+    }
+  }
+}

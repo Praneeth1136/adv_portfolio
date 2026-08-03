@@ -5,7 +5,8 @@ import { copyText } from "./utils/index";
 import { mapEach } from "./utils/dom";
 import Time from "./components/Time";
 import emailjs from '@emailjs/browser';
-import { init3D } from "./3d-scene.js";
+import { EnhancedScene3D } from "./3d-enhanced.js";
+import { initCard3D, ScrollReveal3D } from "./3d-cards.js";
 
 const toContactButtons = document.querySelectorAll(".contact-scroll");
 const footer = document.getElementById("js-footer");
@@ -381,8 +382,18 @@ let scene3D = null;
 
 // Gate the site intro behind the preloader
 new Preloader(() => {
-  scene3D = init3D();
+  const container = document.getElementById('three-container');
+  if (container) {
+    scene3D = new EnhancedScene3D(container);
+  }
   new Home(scroll);
+  
+  // Initialize 3D card effects
+  setTimeout(() => {
+    initCard3D();
+    new ScrollReveal3D();
+  }, 500);
+  
   setTimeout(() => scroll.update(), 100);
 });
 
