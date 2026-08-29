@@ -69,14 +69,14 @@ def main():
 
     # 3. Capstone Visit Site -> Source Code
     capstone_btn_old = """    <div class="project__link">
-      <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer" class="c-button">
+      <a href="https://github.com/Praneeth1136/CodeSpace.git" target="_blank" rel="noopener noreferrer" class="c-button">
         <span class="c-link">
           <span class="c-link__inner">
             <span>
               Visit Site"""
     
     capstone_btn_new = """    <div class="project__link">
-      <a href="https://github.com/Praneeth1136" target="_blank" rel="noopener noreferrer" class="c-button">
+      <a href="https://github.com/Praneeth1136/CodeSpace.git" target="_blank" rel="noopener noreferrer" class="c-button">
         <span class="c-link">
           <span class="c-link__inner">
             <span>

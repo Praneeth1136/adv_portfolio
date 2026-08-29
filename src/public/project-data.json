@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "title": "CAPSTONE: MULTI-AGENT AI SANDBOX",
+    "title": "CodeSpace: MULTI-AGENT AI SANDBOX",
     "role": "Node.js / <br /> Docker & Kubernetes",
     "description": "A distributed microservice engine orchestrating specialized AI programming agents, provisioning isolated execution spaces at runtime via the Kubernetes API with Docker, Ingress, and RBAC.",
-    "link": "https://github.com/Praneeth1136"
+    "link": "https://github.com/Praneeth1136/CodeSpace.git"
   },
   {
     "id": 2,
